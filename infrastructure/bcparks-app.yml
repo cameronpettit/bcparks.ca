@@ -440,12 +440,12 @@ objects:
               image-registry.openshift-image-registry.svc:5000/${OC_NAMESPACE}-tools/staging:${OC_APP}
             name: ${STAGING_POD}
             resources:
-              limits:
-                cpu: 1000m
-                memory: 4Gi
+#              limits:
+#                cpu: 1000m
+#                memory: 4Gi
               requests:
                 cpu: 250m
-                memory: 2Gi            
+                memory: 4Gi            
             ports:
               - containerPort: 8000
             envFrom:
