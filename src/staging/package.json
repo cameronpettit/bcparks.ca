@@ -7,12 +7,15 @@
   "dependencies": {
     "@bcgov/bc-sans": "^1.0.1",
     "@bcgov/bootstrap-theme": "https://github.com/bcgov/bootstrap-theme/releases/download/v1.1.1/bcgov-bootstrap-theme-1.1.1.tgz",
+    "@elastic/app-search-javascript": "^7.14.0",
     "@emotion/react": "^11.1.5",
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
     "@material-ui/styles": "^4.11.4",
     "bootstrap": "~4.3.1",
+    "coffee-register": "~2.2.0",
     "gatsby": "^3.2.1",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-emotion": "^6.2.0",
@@ -22,7 +25,7 @@
     "gatsby-plugin-material-ui": "^3.0.1",
     "gatsby-plugin-offline": "^4.2.0",
     "gatsby-plugin-react-helmet": "^4.2.0",
-    "gatsby-plugin-sass": "^2.0.11",
+    "gatsby-plugin-sass": "^3.0.0",
     "gatsby-plugin-sharp": "^3.11.0",
     "gatsby-plugin-typography": "^3.2.0",
     "gatsby-source-filesystem": "^3.8.0",
@@ -31,6 +34,7 @@
     "gatsby-transformer-remark": "^3.2.0",
     "gatsby-transformer-sharp": "^3.8.0",
     "jquery": "^3.3.1",
+    "mocha": "^9.1.1",
     "popper.js": "^1.14.6",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
@@ -44,7 +48,8 @@
     "sharp": "^0.28.3",
     "simple-react-lightbox": "^3.6.9-0",
     "typography": "^0.16.19",
-    "typography-theme-kirkham": "^0.16.19"
+    "typography-theme-kirkham": "^0.16.19",
+    "got": "^11.8.2"
   },
   "devDependencies": {
     "prettier": "2.2.1"
