@@ -61,7 +61,7 @@ export default function AdvisoryDashboard({
       apiAxios.get(
         `api/get/public-advisory-audits?_limit=500&_sort=advisoryDate:DESC${parkIdQuery}`,
         {
-          headers: { Authorization: `Bearer ${keycloak.idToken}` },
+          headers: { Authorization: `Bearer ${keycloak.accessToken}` },
         }
       ),
     ]);

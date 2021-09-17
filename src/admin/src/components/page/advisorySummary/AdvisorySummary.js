@@ -105,7 +105,7 @@ export default function AdvisorySummary({
         apiAxios.get(
           `api/get/public-advisory-audits/${id}?_publicationState=preview`,
           {
-            headers: { Authorization: `Bearer ${keycloak.idToken}` },
+            headers: { Authorization: `Bearer ${keycloak.accessToken}` },
           }
         ),
         getLinkTypes(cmsData, setCmsData),

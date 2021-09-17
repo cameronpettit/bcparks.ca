@@ -14,7 +14,7 @@ export default function AdvisoryHistory({ data: { advisoryNumber } }) {
     if (initialized && keycloak && advisoryNumber) {
       apiAxios
         .get(`api/getId/public-advisory-audits/history/${advisoryNumber}`, {
-          headers: { Authorization: `Bearer ${keycloak.idToken}` },
+          headers: { Authorization: `Bearer ${keycloak.accessToken}` },
         })
         .then((res) => {
           const advisories = res.data;

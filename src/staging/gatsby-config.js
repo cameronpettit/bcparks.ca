@@ -22,7 +22,7 @@ module.exports = {
     {
       resolve: "gatsby-source-strapi",
       options: {
-        apiURL: process.env.REACT_APP_CMS_BASE_URL,
+        apiURL: "http://host.docker.internal:1337",
         collectionTypes: [
           "urgency",
           "protected-area",

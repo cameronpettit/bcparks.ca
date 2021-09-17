@@ -224,7 +224,7 @@ export default function ParkInfo({ page: { setError, cmsData, setCmsData } }) {
       };
       apiAxios
         .put(`api/update/park-activities/${activityId}`, parkActivity, {
-          headers: { Authorization: `Bearer ${keycloak.idToken}` },
+          headers: { Authorization: `Bearer ${keycloak.accessToken}` },
         })
         .then((res) => {
           const currentActivities = submittingActivities.filter(
@@ -337,7 +337,7 @@ export default function ParkInfo({ page: { setError, cmsData, setCmsData } }) {
       };
       apiAxios
         .put(`api/update/park-facilities/${facilityId}`, parkFacility, {
-          headers: { Authorization: `Bearer ${keycloak.idToken}` },
+          headers: { Authorization: `Bearer ${keycloak.accessToken}` },
         })
         .then((res) => {
           const currentFacilities = submittingFacilities.filter(

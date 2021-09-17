@@ -15,11 +15,11 @@ const STRAPI_ADMIN_EMAIL = process.env.STRAPI_ADMIN_EMAIL || "admin@test.test";
 const createApiUser = async () => {
   const authRole = await findRole("authenticated");
   const password = await strapi.admin.services.auth.hashPassword(
-    STRAPI_API_USER_PASSWORD
+    process.env.API_USER_PASSWORD || 'api'
   );
   const params = {
-    username: STRAPI_API_USER_NAME,
-    email: STRAPI_API_USER_EMAIL,
+    username: process.env.API_USER_NAME || 'api',
+    email: process.env.API_USER_EMAIL || 'api@localhost',
     password: password,
     provider: "local",
     confirmed: true,
@@ -41,7 +41,7 @@ const createApiToken = async () => {
     const apiUser = await createApiUser();
     return await strapi.services["token"]
       .create({
-        token: STRAPI_API_TOKEN,
+        token: process.env.API_TOKEN || 'token',
         user: apiUser,
       })
       .then(() => {
@@ -101,6 +101,7 @@ const setPublicPermissions = async () => {
 };
 
 const setDefaultPermissions = async () => {
+  strapi.log.info("Setting default permissions.");
   return Promise.all([setAuthPermissions(), setPublicPermissions()])
     .then(() => {
       strapi.log.info("Default permissions successfully set.");
@@ -116,11 +117,11 @@ const createAdmin = async () => {
   try {
     if (process.env.NODE_ENV === "development") {
       const params = {
-        username: STRAPI_ADMIN_USER,
-        password: STRAPI_ADMIN_PASSWORD,
-        firstname: STRAPI_ADMIN_FIRST_NAME,
-        lastname: STRAPI_ADMIN_LAST_NAME,
-        email: STRAPI_ADMIN_EMAIL,
+        username: process.env.ADMIN_USER || 'admin',
+        password: process.env.ADMIN_PASSWORD || 'admin',
+        firstname: process.env.ADMIN_FIRST_NAME || 'admin',
+        lastname: process.env.ADMIN_LAST_NAME|| 'admin',
+        email: process.env.ADMIN_EMAIL || 'admin@localhost.com',
         blocked: false,
         isActive: true,
       };
@@ -141,7 +142,7 @@ const createAdmin = async () => {
         }
         params.roles = [verifyRole.id];
         params.password = await strapi.admin.services.auth.hashPassword(
-          params.password
+          params.password,
         );
         await strapi.query("user", "admin").create({
           ...params,

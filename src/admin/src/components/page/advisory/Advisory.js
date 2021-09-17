@@ -149,7 +149,7 @@ export default function Advisory({
           .get(
             `api/get/public-advisory-audits/${id}?_publicationState=preview`,
             {
-              headers: { Authorization: `Bearer ${keycloak.idToken}` },
+              headers: { Authorization: `Bearer ${keycloak.accessToken}` },
             }
           )
           .then((res) => {
@@ -678,7 +678,7 @@ export default function Advisory({
       };
       const res = await apiAxios
         .post(`api/add/links`, linkRequest, {
-          headers: { Authorization: `Bearer ${keycloak.idToken}` },
+          headers: { Authorization: `Bearer ${keycloak.accessToken}` },
         })
         .catch((error) => {
           console.log("error occurred", error);
@@ -704,7 +704,7 @@ export default function Advisory({
       };
       const res = await apiAxios
         .put(`api/update/links/${id}`, linkRequest, {
-          headers: { Authorization: `Bearer ${keycloak.idToken}` },
+          headers: { Authorization: `Bearer ${keycloak.accessToken}` },
         })
         .catch((error) => {
           console.log("error occurred", error);
@@ -823,7 +823,7 @@ export default function Advisory({
 
         apiAxios
           .post(`api/add/public-advisory-audits`, newAdvisory, {
-            headers: { Authorization: `Bearer ${keycloak.idToken}` },
+            headers: { Authorization: `Bearer ${keycloak.accessToken}` },
           })
           .then((res) => {
             setAdvisoryId(res.data.id);
@@ -945,7 +945,7 @@ export default function Advisory({
 
           apiAxios
             .put(`api/update/public-advisory-audits/${id}`, updatedAdvisory, {
-              headers: { Authorization: `Bearer ${keycloak.idToken}` },
+              headers: { Authorization: `Bearer ${keycloak.accessToken}` },
             })
             .then((res) => {
               setAdvisoryId(res.data.id);
@@ -980,7 +980,7 @@ export default function Advisory({
     };
     const res = await apiAxios
       .post(`api/add/links`, linkRequest, {
-        headers: { Authorization: `Bearer ${keycloak.idToken}` },
+        headers: { Authorization: `Bearer ${keycloak.accessToken}` },
       })
       .catch((error) => {
         console.log("error occurred", error);
@@ -1001,7 +1001,7 @@ export default function Advisory({
     };
     const res = await apiAxios
       .put(`api/update/links/${id}`, linkRequest, {
-        headers: { Authorization: `Bearer ${keycloak.idToken}` },
+        headers: { Authorization: `Bearer ${keycloak.accessToken}` },
       })
       .catch((error) => {
         console.log("error occurred", error);
@@ -1031,7 +1031,7 @@ export default function Advisory({
       .post(`api/upload/upload`, fileForm, {
         headers: {
           "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${keycloak.idToken}`,
+          Authorization: `Bearer ${keycloak.accessToken}`,
         },
       })
       .catch((error) => {
