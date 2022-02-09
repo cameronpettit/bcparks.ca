@@ -28,7 +28,6 @@ module.exports = {
           "urgency",
           "protected-area",
           "public-advisory",
-          "park-access-status",
           "park-photo",
           `websites`,
           `pages`,
@@ -41,7 +40,16 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `dominantColor`,
+          quality: 90,
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import PropTypes from "prop-types"
 import { TextField, Button, InputAdornment, InputLabel } from "@material-ui/core"
 import "../../styles/search.scss"
 import { navigate } from "gatsby"
@@ -30,7 +29,7 @@ const MainSearch = () => {
         <TextField
           id="park-search-text"
           variant="outlined"
-          placeholder="Plan your next adventure by searching for campsites and day use areas"
+          placeholder="Search by park name or campsite"
           className="park-search-text-box h50p"
           value={searchText}
           onChange={event => {
@@ -70,13 +69,6 @@ const MainSearch = () => {
       </div>
     </div>
   )
-}
-
-MainSearch.propTypes = {
-  data: PropTypes.shape({
-    activities: PropTypes.array.isRequired,
-    facilities: PropTypes.array.isRequired,
-  }),
 }
 
 export default MainSearch

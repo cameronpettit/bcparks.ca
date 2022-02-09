@@ -163,13 +163,22 @@ body {
   z-index: 10 !important;
 }
 
+// TODO: destroy this .grey-background thing up with fire
 .grey-background {
   background-color: #eef1f5 !important;
 }
 
 .grey-background .MuiPaper-root,
 .grey-background .MuiBox-root {
-  background-color: #eef1f5 !important;
+  background-color: transparent;
+
+  .red-alert {
+    background-color: #eef1f5 !important;
+  }
+
+  &.bc-bg-yellow {
+    background-color: #fcba19;
+  }
 }
 
 .park-heading {
@@ -347,5 +356,29 @@ body {
   }
   #park-advisory-details-container .MuiButtonBase-root {
     padding: 0px !important;
+  }
+}
+
+.park-photo {
+  height: 400px;
+  overflow: hidden; 
+  position: relative;
+
+  img {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    max-width: none;
+    object-fit: cover;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  &--small {
+    height: 196px;
   }
 }
